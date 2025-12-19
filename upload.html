@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template html - upload</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+  </head>
+  <body>
+    <button class="sidebar-menu-button">
+      <span class="material-symbols-rounded">menu</span>
+    </button>
+
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <header class="sidebar-header">
+          <a href="home.html">
+            <img src="img/logo-sidebar.svg" alt="Pintec" class="logo-full"/>
+            <img src="img/icone-sidebar.svg" alt="Pintec" class="logo-icon"/>
+          </a>
+          <button class="sidebar-toggler">
+            <span class="material-symbols-rounded">chevron_left</span>
+          </button>
+        </header>
+        <ul class="nav-list primary-nav">
+          <li class="nav-item">
+            <a href="home.html" class="nav-link">
+              <span class="material-symbols-rounded">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="apresentacao.html" class="nav-link">
+              <span class="material-symbols-rounded">short_text</span>
+              <span class="nav-label">Apresentação</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="noticias.html" class="nav-link">
+              <span class="material-symbols-rounded">newspaper</span>
+              <span class="nav-label">Notícias</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="dados-resultados.html" class="nav-link">
+              <span class="material-symbols-rounded">insert_chart</span>
+              <span class="nav-label">Dados e Resultados</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="metodologia-publicacao.html" class="nav-link">
+              <span class="material-symbols-rounded">library_books</span>
+              <span class="nav-label">Metodologia e Publicação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="eventos-seminarios.html" class="nav-link">
+              <span class="material-symbols-rounded">event_note</span>
+              <span class="nav-label">Eventos/ Seminários</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown-container">
+            <a class="nav-link dropdown-toggle">
+              <span class="material-symbols-rounded">real_estate_agent</span>
+              <span class="nav-label">Apoio a Empresas</span>
+              <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link dropdown-title">Apoio a Empresas</a></li>
+              <li class="nav-item"><a href="texto-inicial.html" class="nav-link dropdown-link">Texto Inicial</a></li>
+              <li class="nav-item"><a href="indicadores.html" class="nav-link dropdown-link">Indicadores</a></li>
+              <li class="nav-item"><a href="arquivos.html" class="nav-link dropdown-link">Arquivos</a></li>
+              <li class="nav-item"><a href="perguntas-frequentes.html" class="nav-link dropdown-link">Perguntas Frequentes</a></li>
+            </ul>
+          </li>
+        </ul>  
+        <ul class="nav-list secondary-nav">
+          <li class="nav-item">
+            <a href="index.html" id="btn-logout" class="nav-link" onclick="return confirm('Deseja sair?');">
+              <span class="material-symbols-rounded">logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <main id="mainContent">
+      <header>
+        <h1>GESTOR</h1>
+        <span>Aline de Brito Silva</span>
+      </header>
+
+      <h2>Apoio a Empresas - Arquivos</h2>
+      <div class="content-new">
+        <h3>Vídeo</h3>
+        <div id="areaVideo">
+          <div id="wrapperArquivo">
+              <div class="upload-container" id="dropZoneVideo" style="width:100%;">
+                  <input type="file" id="fileInputVideo" accept="video/*"> 
+                  <label for="fileInputVideo">SELECIONE O ARQUIVO DE VÍDEO</label>
+                  <p>Ou arrastar os arquivos aqui</p>
+                  <div class="file-list" id="fileListVideo"></div>
+              </div>
+          </div>
+        </div>
+        <br>
+        <h3>Questionário</h3>
+        <div class="upload-container" id="dropZoneQuest" style="width:100%;">
+          <input type="file" id="fileInputQuest" accept=".pdf"> 
+          <label for="fileInputQuest">SELECIONE O PDF DO QUESTIONÁRIO</label>
+          <p>Ou arrastar o arquivo PDF aqui</p>
+          <div class="file-list" id="fileListQuest"></div>
+        </div>
+        <br>
+        <h3>Guia de Preenchimento</h3>
+        <div class="upload-container" id="dropZoneGuia" style="width:100%;">
+          <input type="file" id="fileInputGuia" accept=".pdf"> 
+          <label for="fileInputGuia">SELECIONE O PDF DO GUIA</label>
+          <p>Ou arrastar o arquivo PDF aqui</p>
+          <div class="file-list" id="fileListGuia"></div>
+        </div>
+
+        <div class="row" style="margin-top: 30px; display: flex; gap: 10px;">
+            <md-outlined-button type="link" onclick="history.back();" style="width:100px">Voltar</md-outlined-button>
+            <md-filled-button onclick="salvarArquivos()" style="width:100px">Salvar</md-filled-button>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        function initUpload(inputId, listId, zoneId) {
+            const input = document.getElementById(inputId);
+            const fileList = document.getElementById(listId);
+            const dropZone = document.getElementById(zoneId);
+            if (!input || !fileList || !dropZone) return;
+
+            function renderFiles(files) {
+                fileList.innerHTML = ''; 
+                Array.from(files).forEach((file, index) => {
+                    const sizeKB = (file.size / 1024).toFixed(2);
+
+                    let icon = 'description'; 
+                    if(file.type.includes('video')) icon = 'movie';
+                    if(file.type.includes('pdf')) icon = 'picture_as_pdf';
+
+                    fileList.innerHTML += `
+                      <div class="file-item">
+                        <span class="material-symbols-rounded file-icon-generic">${icon}</span>
+                        <div class="file-info">
+                          <div class="file-name" title="${file.name}">${file.name}</div>
+                          <div class="file-size">${sizeKB} KB</div>
+                        </div>
+                        <button type="button" class="delete-btn material-symbols-rounded" data-index="${index}">close</button>
+                      </div>`;
+                });
+            }
+            input.addEventListener('change', () => renderFiles(input.files));
+            dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+            dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+            dropZone.addEventListener('drop', e => {
+                e.preventDefault(); dropZone.classList.remove('dragover');
+                input.files = e.dataTransfer.files;
+                renderFiles(input.files);
+            });
+            fileList.addEventListener('click', e => {
+                const btn = e.target.closest('.delete-btn');
+                if (btn) {
+                    const dt = new DataTransfer();
+                    const files = Array.from(input.files);
+                    files.splice(btn.dataset.index, 1);
+                    files.forEach(f => dt.items.add(f));
+                    input.files = dt.files;
+                    renderFiles(input.files);
+                }
+            });
+        }
+    </script>
+
+    <script>
+        const DB_KEY = 'db_apoio_arquivos';
+        const fileInputVideo = document.getElementById('fileInputVideo');
+        const fileInputQuest = document.getElementById('fileInputQuest');
+        const fileInputGuia = document.getElementById('fileInputGuia');
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initUpload('fileInputVideo', 'fileListVideo', 'dropZoneVideo');
+            initUpload('fileInputQuest', 'fileListQuest', 'dropZoneQuest');
+            initUpload('fileInputGuia', 'fileListGuia', 'dropZoneGuia');
+
+            carregarDados();
+        });
+
+        function carregarDados() {
+            const db = JSON.parse(localStorage.getItem(DB_KEY)) || {};
+            const dados = db;
+
+            document.getElementById('fileListVideo').innerHTML = '';
+            document.getElementById('fileListQuest').innerHTML = '';
+            document.getElementById('fileListGuia').innerHTML = '';
+            if (!dados) return; 
+
+            if (dados.video) {
+                simularArquivoSalvo('fileListVideo', dados.video.nomeArquivo, 'movie');
+            }
+
+            if (dados.questionario) {
+                simularArquivoSalvo('fileListQuest', dados.questionario.nomeArquivo, 'picture_as_pdf');
+            }
+
+            if (dados.guia) {
+                simularArquivoSalvo('fileListGuia', dados.guia.nomeArquivo, 'picture_as_pdf');
+            }
+        }
+
+        window.salvarArquivos = function() {
+
+            const dadosParaSalvar = {
+                video: {
+                    nomeArquivo: fileInputVideo.files[0]?.name || getNomeSalvo('fileListVideo')
+                },
+                questionario: {
+                    nomeArquivo: fileInputQuest.files[0]?.name || getNomeSalvo('fileListQuest')
+                },
+                guia: {
+                    nomeArquivo: fileInputGuia.files[0]?.name || getNomeSalvo('fileListGuia')
+                }
+            };
+
+            const db = JSON.parse(localStorage.getItem(DB_KEY)) || {};
+            localStorage.setItem(DB_KEY, JSON.stringify(db));
+
+            alert(`Arquivos salvos com sucesso!`);
+        };
+
+        function simularArquivoSalvo(listId, nome, icone) {
+            if(!nome) return;
+            const list = document.getElementById(listId);
+            list.innerHTML = `
+                <div class="file-item">
+                    <span class="material-symbols-rounded file-icon-generic">${icone}</span>
+                    <div class="file-info">
+                        <div class="file-name">${nome}</div>
+                        <div class="file-size">Salvo</div>
+                    </div>
+                    <button type="button" class="delete-btn material-symbols-rounded" onclick="this.parentElement.remove()">close</button>
+                </div>`;
+        }
+
+        function getNomeSalvo(listId) {
+            const item = document.querySelector(`#${listId} .file-name`);
+            return item ? item.innerText : '';
+        }
+    </script>
+  </body>
+</html>
