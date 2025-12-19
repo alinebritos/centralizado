@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600&subset=latin-ext');
+/* -----------------------------------------
+   1. DESIGN TOKENS (:root)
+   Centraliza todas as decisões de design.
+----------------------------------------- */
+:root {
+	  --bg: #F4F5F7;
+  --txt: #000000;
+  --radius: 8px;
+  --border-color: #e0e0e0;
+  --primary-color: #6200ee;
+    /* Paleta de Cores (Semântica) */
+    --color-primary: #2563eb;       /* Azul vibrante */
+    --color-primary-hover: #1d4ed8; /* Azul escuro para hover */
+    --color-secondary: #64748b;     /* Cinza azulado */
+    
+    --color-bg-body: #f8fafc;       /* Fundo quase branco */
+    --color-bg-card: #ffffff;       /* Fundo branco puro */
+    
+    --color-text-main: #1e293b;     /* Texto escuro (quase preto) */
+    --color-text-muted: #64748b;    /* Texto secundário */
+    
+    --color-border: #e2e8f0;
+
+    /* Tipografia */
+    --font-family-base: system-ui, -apple-system, sans-serif;
+    --font-family-heading: 'Georgia', serif; /* Opcional: fonte diferente para títulos */
+    
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-base: 1rem;   /* 16px */
+    --font-size-lg: 1.25rem;  /* 20px */
+    --font-size-xl: 2rem;     /* 32px */
+
+    /* Espaçamento (Escala) */
+    --spacing-xs: 0.5rem;  /* 8px */
+    --spacing-sm: 1rem;    /* 16px */
+    --spacing-md: 1.5rem;  /* 24px */
+    --spacing-lg: 3rem;    /* 48px */
+    
+    /* Layout */
+    --container-width: 1200px;
+    --border-radius: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* -----------------------------------------
+   2. RESET E BASE
+   Normalização básica para consistência.
+----------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-bg-body);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-family-heading, var(--font-family-base));
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-main);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+ul {
+    list-style: none;
+}
+
+/* -----------------------------------------
+   3. UTILITÁRIOS E LAYOUT
+----------------------------------------- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* -----------------------------------------
+   4. COMPONENTES
+----------------------------------------- */
+
+/* Header */
+.site-header {
+    background-color: var(--color-bg-card);
+    padding: var(--spacing-sm) 0;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header nav ul {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.site-header a {
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+/* Cards */
+.card {
+    background-color: var(--color-bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+/* Sidebar */
+.sidebar {
+  margin-top: 28px;
+  margin-left: 28px;
+  margin-bottom: 28px;
+  z-index: 10;
+  width: 250px;
+  max-width: 250px;
+  background: var(--bg2);
+  transition: all 0.4s ease;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 65px;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  position: relative;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-nav{
+  padding: 0 14px;
+}
+
+.sidebar-header .header-logo img {
+
+}
+
+.sidebar-header .sidebar-toggler,
+.sidebar-menu-button {
+  position: absolute;
+  top: 80px;
+  right: -24px;
+  height: 35px;
+  width: 35px;
+  color: #146A91;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  background: #8bdbcd;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: 0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-header .sidebar-toggler {
+  transform: translate(4px, 10px);
+}
+
+.sidebar-header .sidebar-toggler span,
+.sidebar-menu-button span {
+  font-size: 1.75rem;
+  transition: 0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-header .sidebar-toggler span {
+  transform: rotate(180deg);
+}
+
+.sidebar-header .sidebar-toggler:hover {
+  background: #5AC0E4;
+}
+
+.sidebar-nav .nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: 0.4s ease;
+  gap: 5px;
+}
+
+.sidebar .sidebar-nav .primary-nav {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.sidebar .sidebar-nav .primary-nav:hover {
+  scrollbar-color: #EEF2FF transparent;
+}
+
+.sidebar.collapsed .sidebar-nav .primary-nav {
+  overflow: unset;
+  transform: translateY(0);
+}
+
+.sidebar-nav .nav-item .nav-link {
+  color: #6a6a6a;
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+  border-radius: 4px;
+  padding: 6px;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.4s ease;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.sidebar-nav .nav-item .nav-link.active, .dropdown-toggle.active {
+  font-weight: bold;
+  color: #fff;
+  background: #146A91;
+}
+
+.dropdown-toggle, .dropdown-toggle.active {
+  cursor: pointer;
+}
+
+.nav-link:not(.active):hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.dropdown-container.open .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.nav-link.active .material-symbols-rounded {
+  color: #5AC0E4 !important;
+}
+
+.header-logo {
+  display: flex;
+}
+
+.sidebar-header .header-logo img {
+  width: 241px;
+  height: 91px;
+  display: block;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.logo-full {
+  transition: opacity 0.3s 
+  ease;
+  margin-left: 15px;
+}
+
+.logo-icon {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .logo-full {
+  opacity: 0 !important;
+}
+
+.sidebar.collapsed .logo-icon {
+  opacity: 1;
+  margin: 0;
+  width: 40px;
+  position: absolute;
+  right: 0;
+}
+
+.nav-item span.material-symbols-rounded{
+  color: #146A91;
+}
+
+.sidebar-nav .nav-item .nav-link:hover{
+  color: #fff;
+  background: #146A91;
+}
+
+.sidebar-nav .nav-item .nav-link:hover .material-symbols-rounded{
+  color: #5AC0E4;
+}
+
+.dropdown-link:hover{
+  font-weight: bold !important;
+}
+
+.dropdown-link{
+  color: #6a6a6a !important;
+  background: transparent !important;	
+}
+
+.sidebar .nav-link .nav-label {
+  transition: opacity 0.3s ease;
+  font-family: 'Raleway';
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sidebar.collapsed .nav-link :where(.nav-label, .dropdown-icon) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.collapsed .nav-link .dropdown-icon {
+  transition: opacity 0.3s 0s ease;
+}
+
+.sidebar-nav .secondary-nav {
+  display: flex;
+  align-content: space-around;
+  flex-wrap: wrap;
+  margin: 100px 0 0;
+}
+
+.sidebar-nav .nav-item {
+  position: relative;
+}
+
+.sidebar-nav .dropdown-container .dropdown-icon {
+  margin: 0 -4px 0 auto;
+  transition: transform 0.4s ease, opacity 0.3s 0.2s ease;
+}
+
+.sidebar-nav .dropdown-container.open .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.sidebar-nav .dropdown-menu {
+  height: 0;
+  overflow-y: hidden;
+  list-style: none;
+  padding-left: 6px;
+  transition: height 0.4s ease;
+}
+
+.sidebar.collapsed .dropdown-menu {
+  position: absolute;
+  top: -10px;
+  left: 100%;
+  opacity: 0;
+  height: auto !important;
+  padding-right: 10px;
+  overflow-y: unset;
+  pointer-events: none;
+  border-radius: 0 10px 10px 0;
+  background: #ffffff;
+  transition: 0s;
+  color: #FF0004 !important;
+}
+
+.sidebar.collapsed .dropdown-menu:has(.dropdown-link) {
+  padding: 7px 10px 7px 24px;
+}
+
+.sidebar.sidebar.collapsed .nav-item:hover>.dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(12px);
+  transition: all 0.4s ease;
+}
+
+.sidebar.sidebar.collapsed .nav-item:hover>.dropdown-menu:has(.dropdown-link) {
+  transform: translateY(10px);
+}
+
+.dropdown-menu .nav-item .nav-link {
+  padding: 4px 0;
+  font-size: 13px;
+}
+
+.dropdown-menu .nav-item .nav-link.active{
+  background-color: transparent;
+}
+
+.sidebar.collapsed .dropdown-menu .nav-link {
+  padding: 7px 15px;
+}
+
+.dropdown-menu .nav-item .nav-link.dropdown-title {
+  display: none;
+  color: #fff;
+  padding: 9px 15px;
+}
+
+.dropdown-menu:has(.dropdown-link) .nav-item .dropdown-title {
+  font-weight: 500;
+  padding: 7px 15px;
+}
+
+.sidebar.collapsed .dropdown-menu .nav-item .dropdown-title {
+  display: block;
+}
+
+.sidebar-menu-button {
+  display: none;
+}
+
+/* Paginação */
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+#pageInfo {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+#pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pagination button {
+  margin: 0 2px;
+  padding: 8px 16px;
+  background-color: #ffffff;
+  color: #727272;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #E8E9EC;
+  border-radius:4px;
+}
+
+#next, #prev {
+  color: #146A91 !important;
+  padding: 2px 6px !important;
+}
+
+#pagination button.disabled, #pagination button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#pagination button.active {
+  background-color: #146A91;
+  color: #fff !important;
+  border-radius: 4px;
+}
+
+#pages {
+  display: flex;
+}
+
+#pages button {
+  margin: 0 2px;
+}
+
+/* --- FORMULÁRIOS E INPUTS (Outlined Style) --- */
+.md-input-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.md-text-field {
+    width: 100%;
+    padding: 16px 16px;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 4px; /* MD3 Text fields têm cantos levemente arredondados */
+    background: transparent;
+    color: var(--md-sys-color-on-surface);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.md-text-field:focus {
+    border-color: var(--md-sys-color-primary);
+    border-width: 2px;
+    padding: 15px 15px; /* Compensa a borda extra */
+}
+
+/* Floating Label Logic */
+.md-label {
+    position: absolute;
+    left: 14px;
+    top: 16px;
+    background-color: var(--md-sys-color-background); /* Cobre a linha */
+    padding: 0 4px;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: 0.2s ease all;
+    pointer-events: none;
+}
+
+.md-text-field:focus ~ .md-label,
+.md-text-field:not(:placeholder-shown) ~ .md-label {
+    top: -8px;
+    font-size: 0.75rem;
+    color: var(--md-sys-color-primary);
+    font-weight: 500;
+}
+
+/* --- TABELA DE DADOS --- */
+.table-container {
+    overflow-x: auto;
+    border-radius: var(--md-sys-shape-corner-medium);
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.md-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--md-sys-color-surface);
+}
+
+.md-table th {
+    text-align: left;
+    padding: 16px;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 500;
+}
+
+.md-table td {
+    padding: 16px;
+    border-top: 1px solid var(--md-sys-color-outline);
+    color: var(--md-sys-color-on-surface);
+}
+
+.md-table tr:hover td {
+    background-color: rgba(103, 80, 164, 0.05); /* Hover suave */
+}
+
+/* Paginação */
+.md-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px;
+    gap: 8px;
+    border-top: 1px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface);
+}
+
+/* --- EDITOR DE TEXTO SIMPLES --- */
+.md-editor-container {
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.md-editor-toolbar {
+    background-color: var(--md-sys-color-surface-variant);
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.md-editor-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.md-editor-btn:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.md-editor-content {
+    min-height: 150px;
+    padding: 16px;
+    outline: none;
+    background-color: var(--md-sys-color-surface);
+}
+
+/* --- FILE UPLOAD (Drag & Drop) --- */
+.md-file-upload {
+    border: 2px dashed var(--md-sys-color-outline);
+    border-radius: var(--md-sys-shape-corner-medium);
+    padding: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    background-color: var(--md-sys-color-surface);
+}
+
+.md-file-upload:hover, .md-file-upload.dragover {
+    background-color: var(--md-sys-color-surface-variant);
+    border-color: var(--md-sys-color-primary);
+}
+
+.md-file-upload input[type="file"] {
+    display: none;
+}

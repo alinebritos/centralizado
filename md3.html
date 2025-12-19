@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descrição do seu site para SEO">
+    <title>Exemplo Material 3</title>
+	<link rel="stylesheet" href="css/style-md3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="md-top-app-bar">
+        <span class="material-symbols-outlined">menu</span>
+        <h1>Página Inicial</h1>
+        <span class="material-symbols-outlined" style="margin-left: auto;">account_circle</span>
+    </header>
+
+    <main style="padding: 24px; max-width: 900px; margin: 0 auto;">
+
+        <h2 style="font-size: var(--md-sys-typescale-headline-small-size);">
+            Bem-vindo ao MD3
+        </h2>
+        <p style="color: var(--md-sys-color-on-surface-variant);">
+            Esta interface usa tokens semânticos (Primary, Container, OnSurface) para criar consistência.
+        </p>
+
+        <div style="margin: 24px 0; display: flex; gap: 16px; flex-wrap: wrap;">
+            <button class="md-btn md-btn-filled">
+                <span class="material-symbols-outlined">add</span>
+                Novo Item
+            </button>
+
+            <button class="md-btn md-btn-tonal">
+                <span class="material-symbols-outlined">edit</span>
+                Editar
+            </button>
+
+            <button class="md-btn md-btn-outlined">
+                Cancelar
+            </button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            
+            <article class="md-card md-card-elevated">
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Card Elevado</h3>
+                <p style="color: var(--md-sys-color-on-surface-variant);">
+                    Este card usa uma sombra suave para se destacar do fundo. Ideal para conteúdo arrastável ou clicável.
+                </p>
+            </article>
+
+            <article class="md-card md-card-outlined">
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Card Outlined</h3>
+                <p style="color: var(--md-sys-color-on-surface-variant);">
+                    Este card tem uma borda e nenhum preenchimento de sombra. Útil para listas ou grupos de informações.
+                </p>
+            </article>
+
+        </div>
+
+        <div style="margin-top: 32px; padding: 24px; background-color: var(--md-sys-color-primary-container); border-radius: 16px; color: var(--md-sys-color-on-primary-container);">
+            <strong>Primary Container:</strong> 
+            O MD3 usa "Containers" para áreas de destaque menor que o botão principal, mas maior que o fundo.
+        </div>
+
+    </main>
+
+</body>
+</html>

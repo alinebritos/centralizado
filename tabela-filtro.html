@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template html - Tabela com filtro</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <script type="importmap">
+      { "imports": { "@material/web/": "https://esm.run/@material/web/" } }
+    </script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+  </head>
+  <body>
+  <button class="sidebar-menu-button">
+    <span class="material-symbols-rounded">menu</span>
+  </button>
+
+  <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <header class="sidebar-header">
+          <a href="home.html">
+            <img src="img/logo-sidebar.svg" alt="Pintec" class="logo-full"/>
+            <img src="img/icone-sidebar.svg" alt="Pintec" class="logo-icon"/>
+          </a>
+          <button class="sidebar-toggler">
+            <span class="material-symbols-rounded">chevron_left</span>
+          </button>
+        </header>
+        <ul class="nav-list primary-nav">
+          <li class="nav-item">
+            <a href="home.html" class="nav-link">
+              <span class="material-symbols-rounded">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="apresentacao.html" class="nav-link">
+              <span class="material-symbols-rounded">short_text</span>
+              <span class="nav-label">Apresentação</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="noticias.html" class="nav-link">
+              <span class="material-symbols-rounded">newspaper</span>
+              <span class="nav-label">Notícias</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="dados-resultados.html" class="nav-link">
+              <span class="material-symbols-rounded">insert_chart</span>
+              <span class="nav-label">Dados e Resultados</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="metodologia-publicacao.html" class="nav-link">
+              <span class="material-symbols-rounded">library_books</span>
+              <span class="nav-label">Metodologia e Publicação</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="eventos-seminarios.html" class="nav-link">
+              <span class="material-symbols-rounded">event_note</span>
+              <span class="nav-label">Eventos/ Seminários</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown-container">
+            <a class="nav-link dropdown-toggle">
+              <span class="material-symbols-rounded">real_estate_agent</span>
+              <span class="nav-label">Apoio a Empresas</span>
+              <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link dropdown-title">Apoio a Empresas</a></li>
+              <li class="nav-item"><a href="texto-inicial.html" class="nav-link dropdown-link">Texto Inicial</a></li>
+              <li class="nav-item"><a href="indicadores.html" class="nav-link dropdown-link">Indicadores</a></li>
+              <li class="nav-item"><a href="arquivos.html" class="nav-link dropdown-link">Arquivos</a></li>
+              <li class="nav-item"><a href="perguntas-frequentes.html" class="nav-link dropdown-link">Perguntas Frequentes</a></li>
+            </ul>
+          </li>
+        </ul>   
+        <ul class="nav-list secondary-nav">
+          <li class="nav-item">
+            <a href="index.html" id="btn-logout" class="nav-link" onclick="return confirm('Deseja sair?');">
+              <span class="material-symbols-rounded">logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="mainContent">
+      <header>
+        <h1>GESTOR</h1>
+        <span>Aline de Brito Silva</span>
+      </header>
+
+      <h2>Dados e Resultados</h2>
+      <table class="md3-table" id="dataTable">
+        <div class="row">
+            <md-outlined-select label="Pintec">
+              <md-select-option selected value="Todas"><div slot="headline">Todas</div></md-select-option>
+              <md-select-option value="Pintec"><div slot="headline">Pintec</div></md-select-option>
+              <md-select-option value="Pintec Semestral"><div slot="headline">Pintec Semestral</div></md-select-option>
+            </md-outlined-select>
+            <md-filled-button type="link" href="dados-new.html" style="width:100px">Novo</md-filled-button>
+        </div>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Ciclo da Coleta</th>
+            <th>Data de Publicação</th>
+            <th>Status</th>
+            <th>Links</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          </tbody>
+      </table>
+
+      <dialog id="viewLinksDialog" class="m3-dialog">
+        <div class="dialog-content">           
+            <h2 class="dialog-headline">Visualizar Link</h2>
+            <div id="linksListContent"></div>
+
+            <div style="margin-top:20px; text-align:right;">
+                <md-outlined-button style="width:90px;" onclick="document.getElementById('viewLinksDialog').close()">Fechar</md-outlined-button>
+            </div>
+        </div>
+      </dialog>
+    </main>
+    <script src="js/script.js"></script>
+
+    <script>
+        const DB_KEY = 'pintec_dados';
+        const tableBody = document.getElementById('tableBody');
+        const viewDialog = document.getElementById('viewLinksDialog');
+        const linksContent = document.getElementById('linksListContent');
+
+        window.addEventListener('load', () => {
+            carregarTabela();
+        });
+
+        function carregarTabela() {
+            const banco = JSON.parse(localStorage.getItem(DB_KEY)) || [];
+            tableBody.innerHTML = '';
+
+            if(banco.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:20px">Nenhum registro encontrado. Clique em "Novo".</td></tr>';
+                return;
+            }
+
+            banco.forEach(item => {
+                const tr = document.createElement('tr');
+
+                const dataFormatada = item.dataPublicacao ? new Date(item.dataPublicacao).toLocaleDateString('pt-BR') : '-';
+
+                const hasLinks = item.links && item.links.length > 0;
+                const btnState = hasLinks ? '' : 'disabled style="opacity:0.5; cursor:not-allowed;"';
+
+                tr.innerHTML = `
+                    <td>${item.id.slice(-4)}</td>
+                    <td>${item.tituloPT}</td>
+                    <td>${item.ciclo}</td>
+                    <td>${dataFormatada}</td>
+                    <td><md-switch ${item.status ? 'selected' : ''}></md-switch></td>
+                    <td>
+                        <md-outlined-button type="button" 
+                            onclick="verLinks('${item.id}')" 
+                            ${btnState}
+                            style="width: 80px;">
+                            Visualizar
+                        </md-outlined-button>
+                    </td>
+                    <td>
+                        <md-outlined-button type="link" href="dados-new.html?id=${item.id}" style="width: 80px;">Editar</md-outlined-button>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+
+        window.verLinks = function(id) {
+            const banco = JSON.parse(localStorage.getItem(DB_KEY)) || [];
+            const item = banco.find(i => i.id === id);
+
+            if(!item || !item.links || item.links.length === 0) return;
+
+            linksContent.innerHTML = '';
+
+            item.links.forEach(l => {
+                const p = document.createElement('p');
+                p.style.marginBottom = "8px";
+                p.innerHTML = `Clique em um link para abri-lo:<br> <a style="font-size:16px;" href="${l.url}" target="_blank" style="text-decoration:underline; color:var(--md-sys-color-primary); font-weight:bold;">${l.title}</a>`;
+                linksContent.appendChild(p);
+            });
+
+            viewDialog.showModal();
+        }
+    </script>
+    <script>
+    function formatarDataBR(dataISO) {
+        if (!dataISO) return '-';
+        if (dataISO.includes('/')) return dataISO;     
+        const partes = dataISO.split('-');
+        if (partes.length !== 3) return dataISO;   
+        const [ano, mes, dia] = partes;
+        return `${dia}/${mes}/${ano}`;
+    }
+    </script>	
+  </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template html - formulário</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+  </head>
+  <body>
+    <button class="sidebar-menu-button">
+      <span class="material-symbols-rounded">menu</span>
+    </button>
+
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+        <header class="sidebar-header">
+          <a href="home.html">
+            <img src="img/logo-sidebar.svg" alt="Pintec" class="logo-full"/>
+            <img src="img/icone-sidebar.svg" alt="Pintec" class="logo-icon"/>
+          </a>
+          <button class="sidebar-toggler">
+            <span class="material-symbols-rounded">chevron_left</span>
+          </button>
+        </header>
+        <ul class="nav-list primary-nav">
+          <li class="nav-item">
+            <a href="home.html" class="nav-link">
+              <span class="material-symbols-rounded">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="apresentacao.html" class="nav-link">
+              <span class="material-symbols-rounded">short_text</span>
+              <span class="nav-label">Apresentação</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="noticias.html" class="nav-link">
+              <span class="material-symbols-rounded">newspaper</span>
+              <span class="nav-label">Notícias</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="dados-resultados.html" class="nav-link">
+              <span class="material-symbols-rounded">insert_chart</span>
+              <span class="nav-label">Dados e Resultados</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="metodologia-publicacao.html" class="nav-link">
+              <span class="material-symbols-rounded">library_books</span>
+              <span class="nav-label">Metodologia e Publicação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="eventos-seminarios.html" class="nav-link">
+              <span class="material-symbols-rounded">event_note</span>
+              <span class="nav-label">Eventos/ Seminários</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown-container">
+            <a class="nav-link dropdown-toggle">
+              <span class="material-symbols-rounded">real_estate_agent</span>
+              <span class="nav-label">Apoio a Empresas</span>
+              <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link dropdown-title">Apoio a Empresas</a></li>
+              <li class="nav-item"><a href="texto-inicial.html" class="nav-link dropdown-link">Texto Inicial</a></li>
+              <li class="nav-item"><a href="indicadores.html" class="nav-link dropdown-link">Indicadores</a></li>
+              <li class="nav-item"><a href="arquivos.html" class="nav-link dropdown-link">Arquivos</a></li>
+              <li class="nav-item"><a href="perguntas-frequentes.html" class="nav-link dropdown-link">Perguntas Frequentes</a></li>
+            </ul>
+          </li>
+        </ul>     
+        <ul class="nav-list secondary-nav">
+          <li class="nav-item">
+            <a href="index.html" id="btn-logout" class="nav-link" onclick="return confirm('Deseja sair?');">
+              <span class="material-symbols-rounded">logout</span>
+            </a>
+          </li>
+        </ul>
+        </nav>
+    </aside>
+
+    <main id="mainContent">
+      <header>
+        <h1>GESTOR</h1>
+        <span>Aline de Brito Silva</span>
+      </header>
+
+      <h2 id="pageTitle">Nova Metodologia e Publicação</h2>
+        <div class="content-new">
+            <menu class="menu">
+                <button class="menu__item active" onclick="mudarAba('pt', this)">
+                    <img class="icon" src="img/bra.svg" alt="Português" title="Português" />
+                </button>
+
+                <button class="menu__item" onclick="mudarAba('en', this)">
+                    <img class="icon" src="img/eua.svg" alt="English" title="English" />
+                </button>
+                <div class="menu__border"></div>
+            </menu>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 202.9 45.5">
+                    <clipPath id="menu" clipPathUnits="objectBoundingBox" transform="scale(0.0049285362247413 0.021978021978022)">
+                        <path d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7 c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,18.1,10.5 c9.2,3.6,17.6,4.2,23.3,4H6.7z" />
+                    </clipPath>
+                </svg>
+            </div>
+            <form>
+              <div style="display: flex; gap: 16px; width: 100%;">
+                  <md-outlined-text-field id="dataPublicacao" label="Data de Publicação" type="date" style="width:205px"></md-outlined-text-field>
+                  <md-outlined-select id="cicloColeta" label="Ciclo de Coleta" style="flex: 1;">
+                      <md-select-option selected value="Todas">
+                          <div slot="headline">Todas</div>
+                      </md-select-option>
+                      <md-select-option value="Pintec 2025">
+                          <div slot="headline">Pintec 2025</div>
+                      </md-select-option>
+                  </md-outlined-select>
+                  <md-outlined-button type="button" style="width:140px" id="openDialogBtn">
+                   Adicionar link
+                  </md-outlined-button>
+              </div>
+              <div id="linksContainer" class="links-container"><p class="empty-msg">Nenhum link adicionado.</p></div>
+            </form>
+              <div id="conteudo-pt" class="editor-wrapper">
+                  <div class="titulo-editor">
+                      <md-outlined-text-field id="tituloPT" label="Título (PT)" type="text"></md-outlined-text-field>
+                  </div>
+              </div>
+              <div id="conteudo-en" class="editor-wrapper conteudo-hidden">
+                  <div class="titulo-editor">
+                      <md-outlined-text-field id="tituloEN" label="Title (EN)" type="text"></md-outlined-text-field>
+                  </div>
+              </div>
+
+              <div class="row" style="margin-top: 20px;">
+                  <md-outlined-button type="link" onclick="history.back(); return false;" style="width:100px">Voltar</md-outlined-button>
+                  <md-filled-button onclick="salvarTudo()" style="width:100px">Salvar</md-filled-button>
+              </div>
+        </div>
+        <dialog id="myDialog" class="m3-dialog">
+            <h2 class="dialog-headline">Adicionar Link</h2>
+            <div class="dialog-content"> 
+                <md-outlined-text-field id="inputLinkTitle" label="Título do link" type="text"></md-outlined-text-field><br/>
+                <md-outlined-text-field id="inputLinkUrl"  label="Link" type="text"></md-outlined-text-field>
+                <div class="dialog-actions">
+                    <md-outlined-button id="cancelBtn" type="link" style="width: 80px;">Cancelar</md-outlined-button>
+                    <md-filled-button id="confirmBtn" type="link" style="width: 80px">Salvar</md-filled-button>
+                </div>
+            </div>
+        </dialog>
+    </main>
+    <script src="js/script.js"></script>
+    <script>
+        const DB_KEY = 'pintec_metodologia';
+        let linkEditando = null;
+
+        const dialog = document.getElementById('myDialog');
+        const linksContainer = document.getElementById('linksContainer');
+        const inputLinkTitle = document.getElementById('inputLinkTitle');
+        const inputLinkUrl = document.getElementById('inputLinkUrl');
+
+        const quillConfig = {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['link', 'image'],
+                    ['clean']
+                ]
+            }
+        };
+
+        window.salvarTudo = function() {
+
+            const dataPub = document.getElementById('dataPublicacao').value;
+            const ciclo = document.getElementById('cicloColeta').value;
+            const titPT = document.getElementById('tituloPT').value;
+            const titEN = document.getElementById('tituloEN').value;
+
+            const links = [];
+            document.querySelectorAll('.link-item').forEach(div => {
+                const a = div.querySelector('a');
+                links.push({ title: a.textContent, url: a.href });
+            });
+
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id') || Date.now().toString();
+
+            const dados = {
+                id: id,
+                dataPublicacao: dataPub,
+                ciclo: ciclo,
+                tituloPT: titPT,
+                tituloEN: titEN,
+                links: links,
+                status: true
+            };
+
+            const banco = JSON.parse(localStorage.getItem(DB_KEY)) || [];
+            const index = banco.findIndex(i => i.id === id);
+
+            if (index > -1) {
+                banco[index] = dados; 
+            } else {
+                banco.push(dados); 
+            }
+
+            localStorage.setItem(DB_KEY, JSON.stringify(banco));
+            alert("Salvo com sucesso!");
+            window.location.href = 'metodologia-publicacao.html'; 
+        }
+
+        window.addEventListener("load", () => {
+
+            const activeBtn = document.querySelector('.menu__item.active');
+            if(activeBtn) mudarAba('pt', activeBtn);
+
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if(!id) return;
+
+            const banco = JSON.parse(localStorage.getItem(DB_KEY)) || [];
+            const item = banco.find(i => i.id === id);
+
+            if(item) {
+                document.getElementById('pageTitle').innerText = "Editar Metodologia e Publicação";
+                document.getElementById('dataPublicacao').value = item.dataPublicacao;
+                document.getElementById('cicloColeta').value = item.ciclo;
+                document.getElementById('tituloPT').value = item.tituloPT;
+                document.getElementById('tituloEN').value = item.tituloEN;
+
+                if(item.links) {
+                    item.links.forEach(l => addLinkHTML(l.title, l.url));
+                }
+            }
+        });
+
+        window.mudarAba = function(idioma, btn) {
+            const divPT = document.getElementById('conteudo-pt');
+            const divEN = document.getElementById('conteudo-en');
+            if (idioma === 'pt') {
+                divPT.classList.remove('conteudo-hidden');
+                divEN.classList.add('conteudo-hidden');
+            } else {
+                divPT.classList.add('conteudo-hidden');
+                divEN.classList.remove('conteudo-hidden');
+            }
+            document.querySelectorAll('.menu__item').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const menuBorder = document.querySelector(".menu__border");
+            if (menuBorder) {
+                const index = Array.from(btn.parentNode.children).indexOf(btn);
+                menuBorder.style.transform = `translateX(${index * btn.offsetWidth}px)`;
+            }
+        }
+
+        document.getElementById('openDialogBtn').onclick = () => {
+            inputLinkTitle.value = '';
+            inputLinkUrl.value = '';
+            linkEditando = null;
+            document.querySelector('.dialog-headline').innerText = "Adicionar Link";
+            dialog.showModal();
+        };
+
+        document.getElementById('cancelBtn').onclick = () => dialog.close();
+
+        document.getElementById('confirmBtn').onclick = () => {
+            const title = inputLinkTitle.value.trim();
+            let url = inputLinkUrl.value.trim();
+
+            if(!title || !url) return alert("Preencha título e link");
+            if(!/^https?:\/\//i.test(url)) url = 'http://' + url;
+
+            if(linkEditando) {
+
+                linkEditando.querySelector('a').innerText = title;
+                linkEditando.querySelector('a').href = url;
+                linkEditando.querySelector('.link-url-sub').innerText = url;
+            } else {
+
+                addLinkHTML(title, url);
+            }
+            dialog.close();
+        };
+
+        function addLinkHTML(title, url) {
+            const emptyMsg = linksContainer.querySelector('.empty-msg');
+            if(emptyMsg) emptyMsg.remove();
+
+            const div = document.createElement('div');
+            div.className = 'link-item';
+            div.innerHTML = `
+                <div class="link-info">
+                    <a href="${url}" target="_blank">${title}</a>
+                    <span class="link-url-sub">${url}</span>
+                </div>
+                <div class="link-actions">
+                    <span class="material-symbols-rounded action-icon edit-btn">edit</span>
+                    <span class="material-symbols-rounded action-icon delete-btn">close</span>
+                </div>
+            `;
+
+            div.querySelector('.delete-btn').onclick = () => {
+                div.remove();
+                if(linksContainer.children.length === 0) 
+                    linksContainer.innerHTML = '<p class="empty-msg">Nenhum link adicionado.</p>';
+            };
+
+
+            div.querySelector('.edit-btn').onclick = () => {
+                inputLinkTitle.value = title;
+                inputLinkUrl.value = url;
+                linkEditando = div;
+                document.querySelector('.dialog-headline').innerText = "Editar Link";
+                dialog.showModal();
+            };
+
+            linksContainer.appendChild(div);
+        }
+    </script>
+  </body>
+</html>

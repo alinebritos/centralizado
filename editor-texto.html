@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template html - editor</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="css/style.css" />	
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+  </head>
+  <body>
+  <button class="sidebar-menu-button">
+    <span class="material-symbols-rounded">menu</span>
+  </button>
+
+  <aside class="sidebar">
+      <nav class="sidebar-nav">
+      <header class="sidebar-header">
+        <a href="home.html">
+          <img src="img/logo-sidebar.svg" alt="Pintec" class="logo-full"/>
+          <img src="img/icone-sidebar.svg" alt="Pintec" class="logo-icon"/>
+        </a>
+        <button class="sidebar-toggler">
+          <span class="material-symbols-rounded">chevron_left</span>
+        </button>
+      </header>
+        <ul class="nav-list primary-nav">
+          <li class="nav-item">
+            <a href="home.html" class="nav-link">
+              <span class="material-symbols-rounded">home</span>
+              <span class="nav-label">Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="apresentacao.html" class="nav-link">
+              <span class="material-symbols-rounded">short_text</span>
+              <span class="nav-label">Apresentação</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="noticias.html" class="nav-link">
+              <span class="material-symbols-rounded">newspaper</span>
+              <span class="nav-label">Notícias</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="dados-resultados.html" class="nav-link">
+              <span class="material-symbols-rounded">insert_chart</span>
+              <span class="nav-label">Dados e Resultados</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="metodologia-publicacao.html" class="nav-link">
+              <span class="material-symbols-rounded">library_books</span>
+              <span class="nav-label">Metodologia e Publicação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="eventos-seminarios.html" class="nav-link">
+              <span class="material-symbols-rounded">event_note</span>
+              <span class="nav-label">Eventos/ Seminários</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown-container">
+            <a class="nav-link dropdown-toggle">
+              <span class="material-symbols-rounded">real_estate_agent</span>
+              <span class="nav-label">Apoio a Empresas</span>
+              <span class="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link dropdown-title">Apoio a Empresas</a></li>
+              <li class="nav-item"><a href="texto-inicial.html" class="nav-link dropdown-link">Texto Inicial</a></li>
+              <li class="nav-item"><a href="indicadores.html" class="nav-link dropdown-link">Indicadores</a></li>
+              <li class="nav-item"><a href="arquivos.html" class="nav-link dropdown-link">Arquivos</a></li>
+              <li class="nav-item"><a href="perguntas-frequentes.html" class="nav-link dropdown-link">Perguntas Frequentes</a></li>
+            </ul>
+          </li>
+        </ul>     
+        <ul class="nav-list secondary-nav">
+          <li class="nav-item">
+            <a href="index.html" id="btn-logout" class="nav-link" onclick="return confirm('Deseja sair?');">
+              <span class="material-symbols-rounded">logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main id="mainContent">
+      <header>
+        <h1>GESTOR</h1>
+        <span>Aline de Brito Silva</span>
+      </header>
+      <h2>Apoio a empresas - Texto Inicial</h2>
+        <div class="content-new">
+            <div class="row">
+              <md-outlined-select label="Pintec">
+                <md-select-option value="Pintec">
+                  <div slot="headline">Pintec</div>
+                </md-select-option>
+                <md-select-option value="Pintec Semestral">
+                  <div slot="headline">Pintec Semestral</div>
+                </md-select-option>
+              </md-outlined-select>
+            </div>
+            <div class="texto-inicial">
+            <menu class="menu">
+                <button class="menu__item active" onclick="mudarAba('pt', this)">
+                    <img class="icon" src="img/bra.svg" alt="Português" title="Português" />
+                </button>
+
+                <button class="menu__item" onclick="mudarAba('en', this)">
+                    <img class="icon" src="img/eua.svg" alt="English" title="English" />
+                </button>
+                <div class="menu__border"></div>
+            </menu>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 202.9 45.5">
+                    <clipPath id="menu" clipPathUnits="objectBoundingBox" transform="scale(0.0049285362247413 0.021978021978022)">
+                        <path d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7 c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,18.1,10.5 c9.2,3.6,17.6,4.2,23.3,4H6.7z" />
+                    </clipPath>
+                </svg>
+            </div>
+
+              <div id="conteudo-pt" class="editor-wrapper">
+                  <div class="editor-container">
+                      <div id="editor-pt"></div>
+                  </div>
+              </div>
+
+              <div id="conteudo-en" class="editor-wrapper conteudo-hidden">
+                  <div class="editor-container">
+                      <div id="editor-en"></div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+                <md-outlined-button type="link" onclick="history.back()" style="width:100px">Voltar</md-outlined-button>
+                <md-filled-button onclick="salvarTudo()" style="width:100px">Salvar</md-filled-button>
+            </div>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        const quillConfig = {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['link', 'image', 'code-block'],
+                    ['clean']
+                ]
+            }
+        };
+
+        var quillPT = new Quill('#editor-pt', {
+            ...quillConfig,
+            placeholder: 'Escreva o conteúdo em Português...'
+        });
+
+        var quillEN = new Quill('#editor-en', {
+            ...quillConfig,
+            placeholder: 'Write the content in English...'
+        });
+
+        function mudarAba(idioma, elementoBotao) {
+            const divPT = document.getElementById('conteudo-pt');
+            const divEN = document.getElementById('conteudo-en');
+
+            if (idioma === 'pt') {
+                divPT.classList.remove('conteudo-hidden');
+                divEN.classList.add('conteudo-hidden');
+            } else {
+                divPT.classList.add('conteudo-hidden');
+                divEN.classList.remove('conteudo-hidden');
+            }
+
+            document.querySelectorAll('.menu__item').forEach(btn => btn.classList.remove('active'));
+            elementoBotao.classList.add('active');
+
+            const menuBorder = document.querySelector(".menu__border");
+            if (menuBorder) {
+                const index = Array.from(elementoBotao.parentNode.children).indexOf(elementoBotao);
+                const itemWidth = elementoBotao.offsetWidth; 
+                menuBorder.style.transform = `translateX(${index * itemWidth}px)`;
+            }
+        }
+
+        const DB_KEY = 'db_apoio_texto_inicial';
+        const selectCiclo = document.querySelector('md-outlined-select');
+
+        function carregarDados() {
+            const cicloSelecionado = selectCiclo.value; 
+
+            const db = JSON.parse(localStorage.getItem(DB_KEY)) || {};
+
+            const dados = db[cicloSelecionado];
+
+            if (dados) {
+                quillPT.clipboard.dangerouslyPasteHTML(dados.conteudoPT || '');
+                quillEN.clipboard.dangerouslyPasteHTML(dados.conteudoEN || '');
+            } else {
+
+                quillPT.setText('');
+                quillEN.setText('');
+            }
+        }
+
+        window.salvarTudo = function() {
+            const cicloSelecionado = selectCiclo.value;
+            const conteudoPT = document.querySelector('#editor-pt .ql-editor').innerHTML;
+            const conteudoEN = document.querySelector('#editor-en .ql-editor').innerHTML;
+
+            const db = JSON.parse(localStorage.getItem(DB_KEY)) || {};
+
+            db[cicloSelecionado] = {
+                conteudoPT: conteudoPT,
+                conteudoEN: conteudoEN,
+                dataAtualizacao: new Date().toISOString()
+            };
+
+            localStorage.setItem(DB_KEY, JSON.stringify(db));
+
+            alert(`Texto Inicial salvo com sucesso!`);
+        }
+
+        window.addEventListener("load", () => {
+
+             const activeBtn = document.querySelector('.menu__item.active');
+             if(activeBtn) mudarAba('pt', activeBtn);
+
+             carregarDados();
+        });
+
+        selectCiclo.addEventListener('change', () => {
+            carregarDados();
+        });
+
+    </script>
+  </body>
+</html>
